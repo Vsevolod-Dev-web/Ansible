@@ -1,0 +1,11 @@
+#SPDX-License-Identifier: MIT-0
+---
+- name: Установка базовых пакетов PSQL
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - postgresql-16
+    - postgresql-client-16
+    - postgresql-common
+
