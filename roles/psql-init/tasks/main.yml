@@ -1,10 +1,3 @@
 #SPDX-License-Identifier: MIT-0
 ---
-- name: Установка базовых пакетов PSQL
-  ansible.builtin.apt:
-    name:
-      - postgresql
-      - postgresql-client
-      - postgresql-common
-    state: present
 

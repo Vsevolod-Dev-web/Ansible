@@ -1,3 +1,4 @@
 #SPDX-License-Identifier: MIT-0
 ---
-# defaults file for psql-init
+pg_hba_rules:
+  - { hba_type: local, hba_database: all, hba_user: postgres, hba_address: 127.0.0.1/32, hba_method: peer }

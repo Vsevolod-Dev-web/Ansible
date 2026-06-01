@@ -1,0 +1,9 @@
+---
+- name: Изменить pg_hba.conf
+  ansible.builtin.template:
+    src: pg_hba.conf.j2
+    dest: /etc/postgesql/16/main/
+  notify: psql-daemon-reboot
+
+- name: Запуск handlers сразу
+  ansible.builtin.meta: flush_handlers
