@@ -1,4 +1,7 @@
 #SPDX-License-Identifier: MIT-0
 ---
-- name: Перезагрузка службы кластера
-  ansible.builtin.import_tasks: pg-daemon-reboot.yml
+- name: psql-daemon-reboot
+  ansible.builtin.service:
+    name: postgresql@16-main.service
+    state: restarted
+

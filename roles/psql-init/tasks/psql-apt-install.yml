@@ -1,0 +1,8 @@
+---
+- name: Установка базовых пакетов PSQL
+  ansible.builtin.apt:
+    name:
+      - postgresql
+      - postgresql-client
+      - postgresql-common
+    state: present

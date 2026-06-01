@@ -1,8 +1,8 @@
 ---
 - name: Изменить pg_hba.conf
   ansible.builtin.template:
-    src: templates/pg_hba.conf.j2
-    dest: /etc/postgresql/16/main/
+    src: pg_hba.conf.j2
+    dest: /etc/postgresql/16/main/pg_hba.conf
   notify: psql-daemon-reboot
 
 - name: Запуск handlers сразу

@@ -1,5 +1,0 @@
----
-- name: psql-daemon-reboot
-  ansible.builtin.service:
-    name: postgresql@16-main.service
-    state: restarted
