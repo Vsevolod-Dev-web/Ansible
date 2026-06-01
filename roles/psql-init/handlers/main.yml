@@ -1,3 +1,4 @@
 #SPDX-License-Identifier: MIT-0
 ---
-# handlers file for psql-init
+- name: Перезагрузка службы кластера
+  ansible.builtin.import_tasks: pg-daemon-reboot.yml
