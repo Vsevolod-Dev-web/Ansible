@@ -21,6 +21,6 @@ local   replication     all                                     peer
 host    replication     all             127.0.0.1/32            scram-sha-256
 host    replication     all             ::1/128                 scram-sha-256
 # Added with Ansible push
-{% for rule in pg_hba_rules %} 
+{% for rule in pg_hba_rules %}
 {{ rule.hba_type }} {{ rule.hba_database }} {{ rule.hba_user }} {{ rule.hba_address }} {{ rule.hba_method }}
 {% endfor %}
