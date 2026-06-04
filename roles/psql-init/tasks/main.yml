@@ -1,10 +1,4 @@
 #SPDX-License-Identifier: MIT-0
 ---
-- name: Установка пакетов PostgreSQL
-  ansible.builtin.import_tasks: psql-apt-install.yml
-
-- name: Проперка запущен ли кластер
-  ansible.builtin.import_tasks: psql-daemon-status.yml
-
-- name: Доставка pg_hba.conf на таргет
-  ansible.builtin.import_tasks: psql-hba-templ-push.yml
+- ansible.builtin.import_tasks: psql-apt-install.yml
+- ansible.builtin.import_tasks: psql-hba-templ-push.yml

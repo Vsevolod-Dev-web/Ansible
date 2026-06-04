@@ -1,5 +1,0 @@
----
-- name: Проверка статуса кластера
-  ansible.builtin.service:
-    name: postgresql@16-main.service
-    state: started
