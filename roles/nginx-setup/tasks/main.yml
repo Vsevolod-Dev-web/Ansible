@@ -1,3 +1,6 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for nginx-setup
+- include_tasks: nginx-packages-install.yml
+- include_tasks: ngixn-plug-copy.yml
+- include_tasks: nginx-port-change-ipv4.yml

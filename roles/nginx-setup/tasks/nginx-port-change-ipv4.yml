@@ -1,0 +1,7 @@
+---
+- name: nginx-port-change-ipv4
+  ansible.builtin.lineinfile:
+    path: /etc/nginx/sites-available/default
+    regexp: '^\s*listen\s+80\s+default_server;'
+    line: 'listen {{ NGINX_LISTEN_PORT }} default_server;'
+  notify: nginx-service-reboot
