@@ -1,0 +1,20 @@
+---
+- name: UFW-Allowing ssh port
+  community.general.ufw:
+    rule: allow
+    port: '22'
+    log: true
+    src: '{{ item }}'
+  loop:
+    - {{ CONTROL_NODE }}
+    - {{ ADMIN_ADDRESS }}
+
+- name: UFW-Allowing nginx listen port
+  community.general.ufw:
+    rule: allow
+    port: '{{ NGINX_LISTEN_PORT }}'
+    log: true
+
+- name: UFW-Enabling
+  community.general.ufw:
+    state: enabled

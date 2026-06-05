@@ -4,3 +4,6 @@
 - include_tasks: nginx-packages-install.yml
 - include_tasks: ngixn-plug-copy.yml
 - include_tasks: nginx-port-change-ipv4.yml
+
+# ufw conf
+- include_tasks: nginx-ufw-config.yml
