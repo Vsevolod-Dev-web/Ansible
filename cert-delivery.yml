@@ -1,0 +1,20 @@
+---
+- name: Certificates Linux Delivery
+- hosts: '{{ HOSTS_GROUP }}'
+- become: true
+
+  tasks:
+    - name: Copy .crt files
+      ansible.builtin.copy:
+        dest: "{{ item }}"
+        src: "/usr/local/share/ca-certificates"
+        owner: root
+        group: root
+        mode: '0644'
+      loop: "{{ lookup('fileglob', 'files/certs/*.crt', wantlist=True) }}"
+      notify: Update ca-certificates
+
+  handlers:
+  - name: Update ca-certificates
+    ansible.builtin.command: update-ca-certificates
+    listen: Update CA certificates      
