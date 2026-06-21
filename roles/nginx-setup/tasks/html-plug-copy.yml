@@ -1,0 +1,9 @@
+---
+- name: html-plug-copy
+  ansible.builtin.copy:
+    src: index.nginx-debian.html
+    dest: /var/www/html/iles/index.nginx-debian.html
+    owner: www-data
+    group: www-data
+    mode: '0644'
+

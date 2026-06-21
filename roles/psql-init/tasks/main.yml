@@ -1,4 +1,4 @@
 #SPDX-License-Identifier: MIT-0
 ---
-- ansible.builtin.import_tasks: psql-apt-install.yml
-- ansible.builtin.import_tasks: psql-hba-templ-push.yml
+- include_tasks: psql-apt-install.yml
+- include_tasks: psql-hba-templ-push.yml

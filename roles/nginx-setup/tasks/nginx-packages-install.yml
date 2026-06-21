@@ -3,10 +3,3 @@
   ansible.builtin.apt:
     name: nginx
     state: present
-
-- name: nginx-bin-start
-  ansible.builtin.service:
-    name: nginx.service
-    state: started
-
-
