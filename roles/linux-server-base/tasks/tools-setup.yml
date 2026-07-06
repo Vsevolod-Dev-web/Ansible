@@ -1,0 +1,5 @@
+---
+
+- name: Installing packages based on OS Family
+  ansible.builtin.package:
+    - name: {{ tools }}
