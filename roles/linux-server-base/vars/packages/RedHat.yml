@@ -1,0 +1,19 @@
+---
+# 
+# List of vars with packages name in RedHat-based systems
+# 
+
+tools:
+  - epel-release
+  - curl
+  - wget
+  - firewalld
+  - nethogs
+  - iftop
+  - sysstat
+  - iotop
+  - lsof
+  - rsync
+  - nano
+  - screen
+  - htop

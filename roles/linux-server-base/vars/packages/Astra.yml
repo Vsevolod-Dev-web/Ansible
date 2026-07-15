@@ -1,0 +1,18 @@
+---
+# 
+# List of vars with packages name in Debian-based systems
+# 
+
+tools:
+  - curl
+  - wget
+  - ufw
+  - nethogs
+  - iftop
+  - sysstat
+  - iotop
+  - lsof
+  - rsync
+  - nano
+  - screen
+  - htop
