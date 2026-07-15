@@ -1,0 +1,12 @@
+---
+- name: Install firefox
+  chocolatey.chocolatey.win_chocolatey:
+    name: firefox
+    source: http://internal/odata/repo
+    state: present
+
+- name: Install chromium
+  chocolatey.chocolatey.win_chocolatey:
+    name: chromium
+    source: http://internal/odata/repo
+    state: present

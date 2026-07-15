@@ -1,0 +1,6 @@
+---
+- name: Non-admin user creation
+  ansible.windows.win_user:
+    name: User
+    state: present
+    user_cannot_change_password: true

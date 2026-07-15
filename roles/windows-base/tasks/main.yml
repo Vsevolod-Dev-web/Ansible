@@ -1,0 +1,6 @@
+---
+- ansible.builtin.include_tasks: win-update.yml
+- ansible.builtin.include_tasks: user-creation.yml
+- ansible.builtin.include_tasks: browsers-installation.yml
+- ansible.builtin.include_tasks: domain-join.yml
+- ansible.builtin.include_tasks: system-reboot.yml

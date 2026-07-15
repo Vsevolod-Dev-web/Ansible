@@ -1,0 +1,8 @@
+---
+- name: Join in Domain
+  microsoft.ad.membership:
+    dns_domain_name: 'smp.local.net'
+    domain_admin_user: '{{ win_domain_usr }}'
+    domain_admin_password: '{{ win_domain_pswd }}'
+    state: domain
+  when: add_to_domain
