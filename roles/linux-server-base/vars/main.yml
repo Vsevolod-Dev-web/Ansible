@@ -1,3 +1,3 @@
 ---
 - name: Upload package's names based on OS Family
-  ansible.builtin.include_vars: "packages/{{ ansible_os_family }}.yml"
+  ansible.builtin.include_vars: "Packages/{{ ansible_os_family }}.yml"

@@ -1,3 +1,3 @@
 ---
-
-- ansible.builtin.include_tasks: packages-installation.yml
+- ansible.builtin.include_tasks: "Packages/packages-installation.yml"
+- ansible.builtin.include_tasks: "CA-certificates/{{ ansible_os_family }}.yml"

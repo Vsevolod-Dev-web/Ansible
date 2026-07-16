@@ -1,0 +1,4 @@
+---
+- name: Update ca-certificates
+  ansible.builtin.command: update-ca-trust extract
+  changed_when: true

@@ -16,3 +16,4 @@ tools:
   - nano
   - screen
   - htop
+  - ca-certificates

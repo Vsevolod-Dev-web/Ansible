@@ -1,0 +1,15 @@
+---
+- name: CA certificates package check
+  ansible.builtin.dnf:
+    name: ca-certificates
+    state: present
+
+- name: Copy .crt files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "/etc/pki/ca-trust/source/anchors/"
+    owner: root
+    group: root
+    mode: '0644'
+  loop: "{{ lookup('fileglob', '/ansible/files/certs/*.crt', wantlist=True) }}"
+  notify: Update ca-certificates
