@@ -2,6 +2,7 @@
 - name: SSH Configuration. Turning Off Root Login
   ansible.builtin.lineinfile:
     path: /etc/ssh/sshd_config
-    regexp: "PermitRootLogin yes"
+    regexp: "^#?\\s*PermitRootLogin\\s+.*$"
     line: "PermitRootLogin no"
+    validate: 'sshd -t -f %s'
   notify: reload sshd
