@@ -1,0 +1,6 @@
+---
+- name: Restarting SSHd service. Reriding Config
+  ansible.builtin.service:
+    name: sshd
+    state: restarted
+    listen: reload sshd
