@@ -1,3 +1,0 @@
-
-- ansible.builtin.include_tasks: "CA-certificates/{{ ansible_os_family }}.yml"
-- ansible.builtin.include_tasks: "SSH/reload-sshd.yml"
