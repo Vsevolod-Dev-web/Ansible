@@ -1,0 +1,12 @@
+---
+- name: UFW-Allowing ssh port
+  community.general.ufw:
+    rule: allow
+    port: '22'
+    log: true
+    src: '{{ item }}'
+  loop: ufw
+
+- name: UFW-Enabling
+  community.general.ufw:
+    state: enabled

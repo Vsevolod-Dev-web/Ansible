@@ -5,6 +5,7 @@
 - name: Uploading handler for CA-certificates task
   ansible.builtin.include_tasks: "CA-certificates/{{ ansible_os_family }}.yml"
   listen: "Update ca-certificates"
+
 - name: Uploding handler for SSH-reload
   ansible.builtin.include_tasks: "SSH/reload-sshd.yml"
   listen: "reload sshd"
@@ -12,10 +13,13 @@
 # 
 # Uploading vars
 # 
-- name: Upload package's names based on OS Family
+- name: Upload package's names based
   ansible.builtin.include_vars: "Packages/{{ ansible_os_family }}.yml"
+
 - name: Upload aministrator's inf. for user creation
   ansible.builtin.include_vars: "Users/admins.yml"
+- name: Upload administrator's groups
+  ansible.builtin.include_vars: "Users/Gropus/{{ ansible_os_family }}.yml"
 
 # 
 # Including tasks
