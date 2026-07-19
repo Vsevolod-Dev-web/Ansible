@@ -1,0 +1,12 @@
+---
+# Мастер-плейбук: базовая настройка серверов
+# Запуск: ansible-playbook -i inventory.ini site.yml
+ 
+- name: Apply base configuration to all servers
+  hosts: all
+  become: true
+  gather_facts: true
+ 
+  roles:
+    - roles/linux-server-base
+ 

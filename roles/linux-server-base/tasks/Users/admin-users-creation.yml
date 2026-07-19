@@ -1,0 +1,27 @@
+---
+- name: Check if admin users already exist
+  ansible.builtin.getent:
+    database: passwd
+    key: "{{ item.name }}"
+  loop: "{{ admins }}"
+  register: user_existence_check
+  failed_when: false
+
+- name: Creating Administrator's users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    groups: sudo
+    append: true
+    shell: /bin/bash
+    create_home: true
+    update_password: on_create
+    password: "{{ item.password }}"
+    state: present
+  loop: "{{ admins }}"
+  register: user_creation
+
+- name: Pushin password expire for new users # noqa: no-handler
+  ansible.builtin.command: "passwd -e {{ item.item.name }}"
+  loop: "{{ user_existence_check.results }}"
+  when: item.failed
+  changed_when: true

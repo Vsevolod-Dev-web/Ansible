@@ -4,6 +4,7 @@
 # 
 
 tools:
+  - openssh-server
   - curl
   - wget
   - ufw

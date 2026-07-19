@@ -1,4 +1,12 @@
 ---
+- name: Upload package's names based on OS Family
+  ansible.builtin.include_vars: "Packages/{{ ansible_os_family }}.yml"
+- name: Upload aministrator's inf. for user creation
+  ansible.builtin.include_vars: "Users/admins.yml"
+
+- ansible.builtin.include_tasks: "handlers/CA-certificates/{{ ansible_os_family }}.yml"
+- ansible.builtin.include_tasks: "handlers/SSH/reload-sshd.yml"
+
 - ansible.builtin.include_tasks: "Packages/packages-installation.yml"
 - ansible.builtin.include_tasks: "CA-certificates/{{ ansible_os_family }}.yml"
-- ansible.builtin.include_tasks: SSH/ssh-hardening.yml
+- ansible.builtin.include_tasks: "SSH/ssh-hardening.yml"

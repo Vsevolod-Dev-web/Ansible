@@ -5,4 +5,4 @@
     regexp: "^#?\\s*PermitRootLogin\\s+.*$"
     line: "PermitRootLogin no"
     validate: 'sshd -t -f %s'
-  notify: reload sshd
+  notify: reload-sshd
