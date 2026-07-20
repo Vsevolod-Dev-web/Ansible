@@ -1,0 +1,34 @@
+---
+- name: Check if systemd-timesyncd unit exists
+  ansible.builtin.command: systemctl list-unit-files systemd-timesyncd.service
+  register: timesyncd_unit_check
+  changed_when: false
+  failed_when: false
+
+- name: Disable systemd-timesyncd (conflicts with chrony)
+  ansible.builtin.systemd_service:
+    name: systemd-timesyncd
+    enabled: false
+    state: stopped
+    masked: true
+  when: "'systemd-timesyncd.service' in timesyncd_unit_check.stdout"
+
+- name: Installing chrony package
+  ansible.builtin.package:
+    name: chrony
+    state: present
+
+- name: Render chrony config
+  ansible.builtin.template:
+    src: chrony.conf.j2
+    dest: "{{ chrony_conf_dest | default('/etc/chrony.conf') }}"
+    owner: root
+    group: root
+    mode: "0644"
+  notify: restart chrony
+
+- name: Enable chrony
+  ansible.builtin.service:
+    name: "{{ chrony_service_name | default('chronyd') }}"
+    enabled: true
+    state: started

@@ -1,0 +1,43 @@
+# {{ ansible_managed | default('managed by Ansible') }}
+
+{% if chrony_confdir %}
+confdir {{ chrony_confdir }}
+{% endif %}
+
+{% for pool in chrony_pools %}
+pool {{ pool }} iburst
+{% endfor %}
+
+{% for server in chrony_servers %}
+server {{ server }} iburst
+{% endfor %}
+
+{% if chrony_driftfile %}
+driftfile {{ chrony_driftfile }}
+{% endif %}
+
+rtcsync
+makestep {{ chrony_makestep_threshold }} {{ chrony_makestep_updates }}
+maxupdateskew {{ chrony_maxupdateskew }}
+
+{% if chrony_keyfile %}
+keyfile {{ chrony_keyfile }}
+commandkey {{ chrony_cmdkey }}
+{% endif %}
+
+{% if chrony_logdir %}
+logdir {{ chrony_logdir }}
+log tracking measurements statistics
+{% endif %}
+
+{% for net in chrony_allow %}
+allow {{ net }}
+{% endfor %}
+
+{% if chrony_local_stratum is not none %}
+local stratum {{ chrony_local_stratum }}
+{% endif %}
+
+{% for line in chrony_extra_lines %}
+{{ line }}
+{% endfor %}

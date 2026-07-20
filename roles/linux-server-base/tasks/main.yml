@@ -8,6 +8,9 @@
   ansible.builtin.include_vars: "Users/admins.yml"
 - name: Upload administrator's groups
   ansible.builtin.include_vars: "Users/Groups/{{ ansible_facts['os_family'] }}.yml"
+- name: Upload vars for Chrony configuration
+  ansible.builtin.include_vars: "Chrony/{{ ansible_facts['os_family'] }}.yml"
+
 # 
 # Including tasks
 # 
@@ -15,9 +18,13 @@
 - ansible.builtin.include_tasks: "CA-certificates/{{ ansible_facts['os_family'] }}.yml"
 - ansible.builtin.include_tasks: "SSH/ssh-hardening.yml"
 - ansible.builtin.include_tasks: "Users/admin-users-creation.yml"
-# 
+
 # Task for PDP policy on Astra Linux
-# 
 - name: Including PDP policy task if Astra Linux
   ansible.builtin.include_tasks: "Users/pdp-policy-astraLinux.yml"
   when: ansible_facts['os_family'] == "Astra Linux"
+
+# 
+# Turning off systemd-timesyncd and installing chrony
+# 
+- ansible.builtin.include_tasks: "NTP/chrony-init.yml"

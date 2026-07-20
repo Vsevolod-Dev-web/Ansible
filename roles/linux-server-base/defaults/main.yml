@@ -1,3 +1,16 @@
-#SPDX-License-Identifier: MIT-0
----
-# defaults file for linux-server-base
+chrony_pools: []
+
+chrony_servers: []
+chrony_allow: []
+chrony_extra_lines: []
+
+chrony_makestep_threshold: "1.0"
+chrony_makestep_updates: 3
+chrony_maxupdateskew: "100.0"
+
+chrony_local_stratum: null
+chrony_confdir: null
+chrony_driftfile: null
+chrony_keyfile: null
+chrony_logdir: null
+chrony_cmdkey: 1

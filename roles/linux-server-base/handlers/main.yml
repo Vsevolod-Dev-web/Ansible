@@ -6,7 +6,7 @@
   ansible.builtin.service:
     name: sshd
     state: restarted
-    listen: reload-sshd
+  listen: reload-sshd
 
 # 
 # CA-Certificates
@@ -28,3 +28,9 @@
   changed_when: true
   listen: Update ca-certificates
   when: ansible_facts['os_family'] == 'RedHat'
+
+- name: Restarting Chrony
+  ansible.builtin.systemd_service:
+    name: "{{ chrony_service_name }}"
+    state: restarted
+  listen: restart chrony
