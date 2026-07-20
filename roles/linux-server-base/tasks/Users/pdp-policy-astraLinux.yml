@@ -1,0 +1,5 @@
+---
+- name: Apply PDP policy on Astra Linux
+  ansible.builtin.command: pdpl-user -i 63 "{{ item }}"
+  loop: "{{ pdpl_usernames }}"
+  changed_when: true

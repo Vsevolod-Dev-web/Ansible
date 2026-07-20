@@ -1,0 +1,7 @@
+---
+# SSH
+- name: include sshd reloading
+  ansible.builtin.include_tasks: reload-sshd.yml
+
+- name: include CA-certificates certs reads
+  ansible.builtin.include_tasks: "CA-certificates/{{ ansible_facts['os_family'] }}"

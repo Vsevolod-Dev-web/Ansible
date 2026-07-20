@@ -7,3 +7,5 @@ admins:
     password: $6$tOfxPIf78MEYfIfJ$BHHkcz/wGRjetZdcp9OAenkIKKgtAKqji4sNKmmXq/5v2y52t9DaoO9x1HIjtz6GIeOUV9Bo47HjgRiJlfCnY.
   - name: Dima
     password: $6$tOfxPIf78MEYfIfJ$BHHkcz/wGRjetZdcp9OAenkIKKgtAKqji4sNKmmXq/5v2y52t9DaoO9x1HIjtz6GIeOUV9Bo47HjgRiJlfCnY.
+  - name: Test3
+    password: $6$tOfxPIf78MEYfIfJ$BHHkcz/wGRjetZdcp9OAenkIKKgtAKqji4sNKmmXq/5v2y52t9DaoO9x1HIjtz6GIeOUV9Bo47HjgRiJlfCnY.
