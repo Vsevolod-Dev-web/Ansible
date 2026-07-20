@@ -1,11 +1,13 @@
 ---
+# 
+# Incluing vars 
+# 
 - name: Upload package's names based on OS Family
   ansible.builtin.include_vars: "Packages/{{ ansible_facts['os_family'] }}.yml"
 - name: Upload aministrator's inf. for user creation
   ansible.builtin.include_vars: "Users/admins.yml"
 - name: Upload administrator's groups
   ansible.builtin.include_vars: "Users/Groups/{{ ansible_facts['os_family'] }}.yml"
-
 # 
 # Including tasks
 # 
@@ -13,7 +15,9 @@
 - ansible.builtin.include_tasks: "CA-certificates/{{ ansible_facts['os_family'] }}.yml"
 - ansible.builtin.include_tasks: "SSH/ssh-hardening.yml"
 - ansible.builtin.include_tasks: "Users/admin-users-creation.yml"
-
+# 
+# Task for PDP policy on Astra Linux
+# 
 - name: Including PDP policy task if Astra Linux
   ansible.builtin.include_tasks: "Users/pdp-policy-astraLinux.yml"
   when: ansible_facts['os_family'] == "Astra Linux"
