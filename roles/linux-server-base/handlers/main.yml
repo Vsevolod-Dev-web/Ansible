@@ -1,6 +1,6 @@
 ---
 # 
-# SSH reloading
+# SSH
 # 
 - name: Restarting SSHd service. Reriding Config
   ansible.builtin.service:
@@ -29,6 +29,9 @@
   listen: Update ca-certificates
   when: ansible_facts['os_family'] == 'RedHat'
 
+# 
+# Chrony
+# 
 - name: Restarting Chrony
   ansible.builtin.systemd_service:
     name: "{{ chrony_service_name }}"
