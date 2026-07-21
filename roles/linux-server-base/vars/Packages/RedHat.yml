@@ -1,7 +1,7 @@
 ---
-# 
+#
 # List of vars with packages name in RedHat-based systems
-# 
+#
 
 tools:
   - epel-release

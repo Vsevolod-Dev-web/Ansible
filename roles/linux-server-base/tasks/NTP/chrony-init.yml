@@ -1,8 +1,8 @@
 ---
 - name: Check if systemd-timesyncd unit exists
-  ansible.builtin.command: systemctl list-unit-files systemd-timesyncd.service
+  ansible.builtin.systemd_service:
+    name: systemd-timesyncd.service
   register: timesyncd_unit_check
-  changed_when: false
   failed_when: false
 
 - name: Disable systemd-timesyncd (conflicts with chrony)
@@ -29,6 +29,6 @@
 
 - name: Enable chrony
   ansible.builtin.service:
-    name: "{{ chrony_service_name | default('chronyd') }}"
+    name: "{{ chrony_service_name | default('chrony') }}"
     enabled: true
     state: started
